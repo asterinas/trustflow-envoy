@@ -1,0 +1,76 @@
+# Copyright 2024 Ant Group Co., Ltd.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+load(
+    "@envoy//bazel:envoy_build_system.bzl",
+    "envoy_cc_library",
+)
+
+package(default_visibility = ["//visibility:public"])
+
+envoy_cc_library(
+    name = "openssl_wrapper",
+    hdrs = ["openssl_wrapper.h"],
+    external_deps = [
+        "ssl",
+    ],
+    repository = "@envoy",
+)
+
+envoy_cc_library(
+    name = "key_utils",
+    srcs = ["key_utils.cc"],
+    hdrs = ["key_utils.h"],
+    external_deps = [
+        "fmtlib",
+    ],
+    repository = "@envoy",
+    deps = [
+        ":openssl_wrapper",
+        "@com_google_absl//absl/status",
+        "@com_google_absl//absl/status:statusor",
+        "@com_google_absl//absl/types:span",
+    ],
+)
+
+envoy_cc_library(
+    name = "gcm",
+    srcs = ["gcm.cc"],
+    hdrs = ["gcm.h"],
+    external_deps = [
+        "fmtlib",
+    ],
+    repository = "@envoy",
+    deps = [
+        ":openssl_wrapper",
+        "@com_google_absl//absl/status:statusor",
+        "@com_google_absl//absl/types:span",
+    ],
+)
+
+envoy_cc_library(
+    name = "rsa",
+    srcs = ["rsa.cc"],
+    hdrs = ["rsa.h"],
+    external_deps = [
+        "fmtlib",
+    ],
+    repository = "@envoy",
+    deps = [
+        ":openssl_wrapper",
+        "@com_google_absl//absl/status",
+        "@com_google_absl//absl/status:statusor",
+        "@com_google_absl//absl/types:span",
+    ],
+)

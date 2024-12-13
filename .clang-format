@@ -1,0 +1,17 @@
+# Use the Google style in this project.
+BasedOnStyle: Google
+
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex:           '^<.*\.h>'
+    Priority:        1
+  - Regex:           '^<.*'
+    Priority:        2
+  - Regex:           '.*\.pb.*\.h"$'
+    Priority:        6
+  - Regex:           '^"envoy.*'
+    Priority:        4
+  - Regex:           '^"source.*'
+    Priority:        5
+  - Regex:           '^".*'
+    Priority:        3

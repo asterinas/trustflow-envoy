@@ -1,0 +1,7 @@
+bazel-*
+clang.bazelrc
+user.bazelrc
+target
+.vscode
+__pycache__
+demo
