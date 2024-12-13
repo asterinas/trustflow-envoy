@@ -26,12 +26,10 @@ envoy_cc_library(
     name = "jwe_filter_lib",
     srcs = ["jwe_filter.cc"],
     hdrs = ["jwe_filter.h"],
-    external_deps = [
-        "spdlog",
-    ],
     repository = "@envoy",
     deps = [
         ":pkg_cc_proto",
+        "@com_github_gabime_spdlog//:spdlog",
         "@com_google_protobuf//:json_util",
         "@cppcodec",
         "@envoy//envoy/http:filter_interface",

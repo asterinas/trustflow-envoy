@@ -29,10 +29,10 @@ def _com_github_envoy():
         http_archive,
         name = "envoy",
         urls = [
-            "https://github.com/envoyproxy/envoy/archive/8a5d7b0241b419854a4dd1c16c382a9784cdca4a.tar.gz",
+            "https://github.com/envoyproxy/envoy/archive/cf42100255142120263ff9799bca3117e1c91126.tar.gz",
         ],
-        strip_prefix = "envoy-8a5d7b0241b419854a4dd1c16c382a9784cdca4a",
-        sha256 = "179665429e2e4dc81889e77c7dad9e7d444e8bd89b1ad38227bff4bc3ce3db12",
+        strip_prefix = "envoy-cf42100255142120263ff9799bca3117e1c91126",
+        sha256 = "14685848605b24f7eba677bb9f067e5ac16a53679d356e7ea0cfc2477814183a",
     )
 
 def _com_github_sf_apis():
